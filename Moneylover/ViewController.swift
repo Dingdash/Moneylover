@@ -17,10 +17,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomButton: UIButton!
     @IBAction func topTapped(_ sender: Any) {
         if signupmode{//signup
-            
+            if let email = emailText.text{
+                if let password = passwordText.text{
+                    presentAlert(alert: "tes")
+                }
+            }
         }else{//login
-            
+            if let email = emailText.text{
+                if let password = passwordText.text{
+                    
+                }
+            }
         }
+    }
+    func presentAlert(alert:String){
+        let alertVC = UIAlertController(title:"Error",message:alert,preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+            alertVC.dismiss(animated: true, completion: nil)
+        }
+        alertVC.addAction(okAction)
+        present(alertVC,animated: true,completion: nil)
+        
     }
     @IBAction func bottomTapped(_ sender: Any){
         if signupmode{
