@@ -33,16 +33,19 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ry6-ij-ph9">
                                 <rect key="frame" x="44" y="334" width="287" height="30"/>
-                                <state key="normal" title="Register"/>
+                                <state key="normal" title="Log In"/>
+                                <connections>
+                                    <action selector="topTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Psm-kE-CIb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oy8-52-LNA">
                                 <rect key="frame" x="44" y="379" width="287" height="30"/>
-                                <state key="normal" title="Login"/>
+                                <state key="normal" title="Switch to Sign Up"/>
                                 <connections>
-                                    <segue destination="ani-Mm-JFZ" kind="show" id="M4V-Ke-Tdz"/>
+                                    <action selector="bottomTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ml8-J0-LUN"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register with email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dP-5K-uUZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dP-5K-uUZ">
                                 <rect key="frame" x="44" y="203" width="245" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -69,10 +72,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="bottomButton" destination="Oy8-52-LNA" id="M3L-QC-7KY"/>
+                        <outlet property="emailText" destination="aRz-5l-dO2" id="VDg-2G-pPc"/>
+                        <outlet property="passwordText" destination="k4H-8w-TVP" id="P6o-CK-aNy"/>
+                        <outlet property="titleLabel" destination="0dP-5K-uUZ" id="E9C-E7-UOO"/>
+                        <outlet property="topButton" destination="ry6-ij-ph9" id="uun-5a-WYR"/>
+                        <segue destination="ani-Mm-JFZ" kind="showDetail" identifier="loginSegue" id="cZ0-6o-fbe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3524" y="1176"/>
+            <point key="canvasLocation" x="-2391" y="1176"/>
         </scene>
         <!--Laporan-->
         <scene sceneID="8C5-GX-bKW">

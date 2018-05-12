@@ -9,7 +9,6 @@
 import UIKit
 
 class LebihViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    
     let cellContent = ["Dompet Saya","Kategori","Hutang","Alat","Mode Perjalanan","Toko","Jelajahi Money Lover","Tentang"]
     var indexview=0
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -19,7 +18,6 @@ class LebihViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "LebihCell")
         cell.textLabel?.text = cellContent[indexPath.row]
-        
         return cell
     }
     

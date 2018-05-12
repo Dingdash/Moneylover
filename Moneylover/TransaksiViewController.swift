@@ -15,7 +15,6 @@ class TransaksiViewController: UIViewController {
         super.viewDidLoad()
         
         let picker = MonthYearPickerView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: view.bounds.width, height: 200)))
-        
         picker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         view.addSubview(picker)
                // Do any additional setup after loading the view.

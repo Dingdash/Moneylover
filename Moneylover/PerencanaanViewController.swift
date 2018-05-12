@@ -56,7 +56,7 @@ class PerencanaanViewController: UIViewController,UITableViewDataSource,UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         indexview = indexPath.row
         //self.performSegueWithIdentifier("segueAnggaran", sender: nil)
-        self.performSegue(withIdentifier: "segueAnggaran", sender: nil)
+     //   self.performSegue(withIdentifier: "segueAnggaran", sender: nil)
         
     }
     
