@@ -9,22 +9,44 @@
 import UIKit
 
 class PerencanaanViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+    
     let cellContent = ["Anggaran","Acara","Tabungan","Transaksi Berulang","Tagihan"]
+    let descriptionContent = ["Mengatur anggaran untuk masing-masing kategori atau untuk semua kategori sekaligus dalam satu dompet.","Membuat sebuah acara/event tersebut berlangsung,misalnya untuk memantau pengeluaran ketika melakukan perjalanan akhir pekan.","Membuat rencana simpanagan adalah cara yang baik untuk mengamankan uang untuk kebutuhan masa depan, atau untuk membeli barang baru.","Membuat transaksi berulang yang secara otomatis akan ditambahkan di waktu yang akan datang","Memantau tagihan berulang Anda seperti listrik, sewa, langganan internet, dll."]
     var indexview=0
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellContent.count
+        return cellContent.count+descriptionContent.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "PerencanaanCell")
-        cell.textLabel?.text = cellContent[indexPath.row]
-        return cell
+        
+        
+        if(indexPath.row%2==0)
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PerencanaanCell")
+           
+            let label = cell?.viewWithTag(1) as! UILabel
+            label.text = cellContent[indexPath.row/2]
+            return cell!
+        }else
+        {
+            let cell2 = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell")
+            //cell2.selectionStyle = UITableViewCellSelectionStyle.none
+            let label = cell2?.viewWithTag(2) as! UILabel
+            
+            
+            label.text = descriptionContent[indexPath.row/2]
+            return cell2!
+        }
+        
+        
+        
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,8 +55,9 @@ class PerencanaanViewController: UIViewController,UITableViewDataSource,UITableV
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         indexview = indexPath.row
+        //self.performSegueWithIdentifier("segueAnggaran", sender: nil)
         self.performSegue(withIdentifier: "segueAnggaran", sender: nil)
-        print(indexview)
+        
     }
     
 
