@@ -35,8 +35,8 @@ class LebihViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         // Dispose of any resources that can be recreated.
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        indexview = indexPath.row
-        performSegue(withIdentifier: "segue", sender: self)
+       // indexview = indexPath.row
+        //performSegue(withIdentifier: "segue", sender: self)
     }
 
     /*

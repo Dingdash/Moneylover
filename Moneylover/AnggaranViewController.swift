@@ -1,28 +1,22 @@
 //
-//  TransaksiViewController.swift
+//  AnggaranViewController.swift
 //  Moneylover
 //
-//  Created by DaFIDS on 10/05/18.
+//  Created by DaFIDS on 13/05/18.
 //  Copyright © 2018 DaFIDS. All rights reserved.
 //
 
 import UIKit
-import MonthYearPicker
-class TransaksiViewController: UIViewController {
 
-    @IBOutlet weak var datePicker1: UIDatePicker!
+class AnggaranViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let picker = MonthYearPickerView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: view.bounds.width, height: 200)))
-        
-        picker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
-        view.addSubview(picker)
-               // Do any additional setup after loading the view.
+        self.navigationItem.title = "Anggaran"
+        // Do any additional setup after loading the view.
     }
-    @objc func dateChanged(_ picker: MonthYearPickerView) {
-        print("date changed: \(picker.date)")
-    }
+  
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

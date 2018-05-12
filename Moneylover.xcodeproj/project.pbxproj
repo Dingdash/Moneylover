@@ -15,6 +15,7 @@
 		077695E020A433BE001B9AD5 /* LebihViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077695DF20A433BE001B9AD5 /* LebihViewController.swift */; };
 		077695E220A43900001B9AD5 /* PerencanaanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077695E120A43900001B9AD5 /* PerencanaanViewController.swift */; };
 		077695E420A43D4F001B9AD5 /* TransaksiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077695E320A43D4F001B9AD5 /* TransaksiViewController.swift */; };
+		07FBFB0B20A7629E00CD9559 /* AnggaranViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBFB0A20A7629E00CD9559 /* AnggaranViewController.swift */; };
 		ECF12A41A27C0DC7F6054E9C /* Pods_Moneylover.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC40D9990D56EF92E7CDD69 /* Pods_Moneylover.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		077695DF20A433BE001B9AD5 /* LebihViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LebihViewController.swift; sourceTree = "<group>"; };
 		077695E120A43900001B9AD5 /* PerencanaanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerencanaanViewController.swift; sourceTree = "<group>"; };
 		077695E320A43D4F001B9AD5 /* TransaksiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransaksiViewController.swift; sourceTree = "<group>"; };
+		07FBFB0A20A7629E00CD9559 /* AnggaranViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnggaranViewController.swift; sourceTree = "<group>"; };
 		16415027273E6E6AEEF2A7EF /* Pods-Moneylover.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moneylover.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Moneylover/Pods-Moneylover.debug.xcconfig"; sourceTree = "<group>"; };
 		7D7FAFFD1F5B0660BFD7207A /* Pods-Moneylover.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moneylover.release.xcconfig"; path = "Pods/Target Support Files/Pods-Moneylover/Pods-Moneylover.release.xcconfig"; sourceTree = "<group>"; };
 		8AC40D9990D56EF92E7CDD69 /* Pods_Moneylover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moneylover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				077695CD20A41F68001B9AD5 /* AppDelegate.swift */,
+				07FBFB0A20A7629E00CD9559 /* AnggaranViewController.swift */,
 				077695E120A43900001B9AD5 /* PerencanaanViewController.swift */,
 				077695E320A43D4F001B9AD5 /* TransaksiViewController.swift */,
 				077695DF20A433BE001B9AD5 /* LebihViewController.swift */,
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				077695E420A43D4F001B9AD5 /* TransaksiViewController.swift in Sources */,
+				07FBFB0B20A7629E00CD9559 /* AnggaranViewController.swift in Sources */,
 				077695D020A41F68001B9AD5 /* ViewController.swift in Sources */,
 				077695E220A43900001B9AD5 /* PerencanaanViewController.swift in Sources */,
 				077695E020A433BE001B9AD5 /* LebihViewController.swift in Sources */,
