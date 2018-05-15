@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController {
+    var conf = Conf()
+    
     
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,6 +23,8 @@ class ViewController: UIViewController {
             if let email = emailText.text{
                 if let password = passwordText.text{
                     //presentAlert(alert: "tes")
+                    
+                 
                 }
             }
         }else{//login
@@ -69,8 +73,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var emailText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //print(signupmode)
+       
     }
     func cekuser(usr:String,pass:String,complete:@escaping (_ status:Int,_ message:String,_ token:String)->Void){
         let body = ["email":usr,"password":pass]
