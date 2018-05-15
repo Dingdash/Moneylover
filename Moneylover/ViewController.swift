@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
     
@@ -19,14 +20,25 @@ class ViewController: UIViewController {
         if signupmode{//signup
             if let email = emailText.text{
                 if let password = passwordText.text{
-                    presentAlert(alert: "tes")
+                    //presentAlert(alert: "tes")
                 }
             }
         }else{//login
-            if let email = emailText.text{
+            if let email = emailText.text {
                 if let password = passwordText.text{
-                    
+                    _ = cekuser(usr: email,pass: password){
+                        (status,message,token) in
+                        if(status==0)
+                        {
+                            self.presentAlert(alert: message)
+                        }
+                    }
+                }else
+                {
+                    presentAlert(alert: "Email dan Password tidak boleh kosong")
                 }
+            }else{
+                presentAlert(alert: "Email dan Password tidak boleh kosong")
             }
         }
     }
@@ -58,7 +70,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print(signupmode)
+        //print(signupmode)
+    }
+    func cekuser(usr:String,pass:String,complete:@escaping (_ status:Int,_ message:String,_ token:String)->Void){
+        let body = ["email":usr,"password":pass]
+        // let body = ["email":"bayusyafresalizdham@gmail.com","password":"bayuganteng2312"]
+       Alamofire.request("http://localhost/moneylover/login",method: .post,parameters:body,headers:nil).responseJSON { response in
+            if let json : [String : Any] = response.result.value as?[String:Any] {
+                let message=json["message"].unsafelyUnwrapped as!String
+                let status = json["status"].unsafelyUnwrapped as!Int
+               // print(json["status"].unsafelyUnwrapped)//0 username password salah//1 login benar
+                //status = json["status"].unsafelyUnwrapped as! Int
+                var result : [String:Any] = json["data"] as![String:Any]
+                var token = ""
+                if result["token"] != nil {
+                    token = result["token"].unsafelyUnwrapped as! String
+                    }
+                 complete(status,message,token)
+                }
+            }
+            // if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+            //    print("Data: \(utf8Text)") // original server data as UTF8 string
+            // }
     }
 
     override func didReceiveMemoryWarning() {

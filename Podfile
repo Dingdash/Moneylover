@@ -7,4 +7,5 @@ target 'Moneylover' do
 
   # Pods for Moneylover
   pod "MonthYearPicker"
+  pod "Alamofire"
 end

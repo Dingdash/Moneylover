@@ -1,16 +1,20 @@
 PODS:
+  - Alamofire (4.7.1)
   - MonthYearPicker (3.0.0)
 
 DEPENDENCIES:
+  - Alamofire
   - MonthYearPicker
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Alamofire
     - MonthYearPicker
 
 SPEC CHECKSUMS:
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
   MonthYearPicker: 59cfa26c5bfbbc52ef147360d9846c349f578991
 
-PODFILE CHECKSUM: 5841973bc1cfedd6362d980a8068545056cbe32e
+PODFILE CHECKSUM: 3bd1901f5bc812d6e9b77f21de3e6ae64db7ed03
 
 COCOAPODS: 1.5.0
