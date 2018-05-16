@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-
+import Foundation
 class LebihViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
   
     @IBOutlet weak var emailText: UILabel!
@@ -25,8 +25,8 @@ class LebihViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         return cell
     }
     func getWallet(complete:@escaping(_ result:[[String:Any]]?)->Void){
-        let header = ["token":ViewController.login.token]
-        Alamofire.request("http://localhost/moneylover/wallet", method:.get, parameters: nil,encoding:JSONEncoding.default,headers:header).responseJSON{response in
+        let header = ["token":Config.token]
+        Alamofire.request(Config.base_url+Config.getAPI(jenis: "wallet"), method:.get, parameters: nil,encoding:JSONEncoding.default,headers:header).responseJSON{response in
             //print(response.result.value)
             if let json : [String : Any] = response.result.value as?[String:Any] {
                 
@@ -44,14 +44,38 @@ class LebihViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             }
         }
     }
+    func getAllKategori(complete:@escaping(_ result:[[String:Any]]?)->Void){
+        let header = ["token":Config.token]
+        print(Config.token)
+       print(Config.base_url+Config.getAPI(jenis:"category"))
+        Alamofire.request(Config.base_url+Config.getAPI(jenis:"category"), method:.get,parameters:nil,encoding:JSONEncoding.default,headers:header).responseJSON{
+            response in
+            if let json : [String:Any] = response.result.value as?[String:Any]{
+                let message=json["message"].unsafelyUnwrapped as!String
+                let status = json["status"].unsafelyUnwrapped as!Int
+                if let array = json["data"] as? [[String: Any]] {
+                    //If you want array of task id you can try like
+                    //let name_wallet = array.flatMap { $0["name_wallet"] as? String }
+                    //print(array[0]["name_wallet"].unsafelyUnwrapped)
+                    complete(array)
+                }
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailText.text = ViewController.login.email
+        emailText.text = Config.uID
         getWallet(complete:{(result) in
-            print(result?.count)
-            
+            //print(result?.count)
+            for n in 0..<result!.count{
+                 print(result?[n]["id_wallet"])
+            }
+           
         })
+        getAllKategori { (result) in
+            //print(result[0]["category_img"])
+        }
         // Do any additional setup after loading the view.
         
     }

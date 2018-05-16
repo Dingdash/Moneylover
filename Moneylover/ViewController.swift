@@ -10,9 +10,7 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController {
-    struct conf{
-        static var base_url:String = "http://localhost/moneylover/"
-    }
+  
     struct login{
         static var email = String()
         static var token = String()
@@ -39,8 +37,8 @@ class ViewController: UIViewController {
                             self.presentAlert(alert: message)
                         }else
                         {
-                           login.email = email
-                            login.token = token
+                           Config.uID = email
+                            Config.token = token
                             self.performSegue(withIdentifier: "loginSegue", sender: nil)
                         }
                     }

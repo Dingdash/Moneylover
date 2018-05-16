@@ -8,16 +8,13 @@
 
 import Foundation
 
-struct Conf
+struct Config
 {
-    var base_url:String = "http://localhost/"
+    static var base_url:String = "http://localhost/moneylover/"
     static var uID = ""
     static var token = ""
-    mutating func setuser(user:String){
-        Conf.uID = user
-    }
-    mutating func setToken(token:String){
-        Conf.token = token
+    static func getAPI(jenis:String)->(String){
+        return jenis
     }
     
 }
