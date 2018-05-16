@@ -127,22 +127,26 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fTa-AQ-SOa">
+                                                    <rect key="frame" x="15" y="8" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="3ev-1O-qEn"/>
+                                                        <constraint firstAttribute="height" constant="25" id="vv6-ZQ-Jdw"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dompet Saya" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgi-wE-Rbe">
-                                                    <rect key="frame" x="33.5" y="10" width="102.5" height="21"/>
+                                                    <rect key="frame" x="48" y="11" width="278" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fTa-AQ-SOa">
-                                                    <rect key="frame" x="15" y="8" width="10.5" height="25"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="fTa-AQ-SOa" firstAttribute="top" secondItem="C44-jQ-qix" secondAttribute="top" constant="8" id="0Hw-dn-AHh"/>
-                                                <constraint firstAttribute="trailing" secondItem="mgi-wE-Rbe" secondAttribute="trailing" constant="206" id="BRi-Xk-rxm"/>
-                                                <constraint firstItem="mgi-wE-Rbe" firstAttribute="leading" secondItem="fTa-AQ-SOa" secondAttribute="trailing" constant="8" id="FX7-LH-UlM"/>
-                                                <constraint firstItem="fTa-AQ-SOa" firstAttribute="leading" secondItem="C44-jQ-qix" secondAttribute="leading" constant="15" id="KbM-Pn-fEf"/>
-                                                <constraint firstItem="mgi-wE-Rbe" firstAttribute="top" secondItem="C44-jQ-qix" secondAttribute="top" constant="10" id="aVL-gI-fIf"/>
+                                                <constraint firstItem="fTa-AQ-SOa" firstAttribute="leading" secondItem="C44-jQ-qix" secondAttribute="leading" constant="15" id="5t9-7S-Oko"/>
+                                                <constraint firstItem="mgi-wE-Rbe" firstAttribute="leading" secondItem="fTa-AQ-SOa" secondAttribute="trailing" constant="8" id="8Kh-5M-5wT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mgi-wE-Rbe" secondAttribute="trailing" constant="8" id="AVb-zL-1lE"/>
+                                                <constraint firstItem="fTa-AQ-SOa" firstAttribute="top" secondItem="C44-jQ-qix" secondAttribute="top" constant="8" id="Op0-oc-emz"/>
+                                                <constraint firstItem="mgi-wE-Rbe" firstAttribute="top" secondItem="C44-jQ-qix" secondAttribute="top" constant="11" id="oAJ-zR-j72"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -194,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4T6-ye-5SS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1202" y="134"/>
+            <point key="canvasLocation" x="1200.8" y="133.5832083958021"/>
         </scene>
         <!--Lebih-->
         <scene sceneID="rLB-yn-pcw">
@@ -228,8 +232,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q2a-y7-AAd">
-                                                    <rect key="frame" x="15" y="8" width="25" height="25"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q2a-y7-AAd">
+                                                    <rect key="frame" x="14" y="8" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="PCz-A9-WhK"/>
+                                                        <constraint firstAttribute="width" constant="25" id="xNK-PB-cx4"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dompet Saya" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kop-1M-XxR">
                                                     <rect key="frame" x="48" y="10" width="103" height="21"/>
@@ -252,8 +260,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ujx-s9-jTA">
-                                                    <rect key="frame" x="15" y="8" width="25" height="25"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ujx-s9-jTA">
+                                                    <rect key="frame" x="14" y="8" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="HQ4-B2-m1n"/>
+                                                        <constraint firstAttribute="height" constant="25" id="aqY-DR-eyo"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQ0-GM-agS">
                                                     <rect key="frame" x="48" y="10" width="42" height="21"/>
@@ -296,6 +308,9 @@
                         <viewLayoutGuide key="safeArea" id="BeN-yC-NGP"/>
                     </view>
                     <navigationItem key="navigationItem" title="Lebih" id="R69-dN-hKj"/>
+                    <connections>
+                        <outlet property="emailText" destination="7VB-Hc-khB" id="5XP-OK-Vqc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UlQ-m0-qht" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

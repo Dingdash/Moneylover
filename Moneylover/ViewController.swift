@@ -10,9 +10,13 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController {
-    var conf = Conf()
-    
-    
+    struct conf{
+        static var base_url:String = "http://localhost/moneylover/"
+    }
+    struct login{
+        static var email = String()
+        static var token = String()
+    }
     
     @IBOutlet weak var titleLabel: UILabel!
     var signupmode = false
@@ -23,8 +27,6 @@ class ViewController: UIViewController {
             if let email = emailText.text{
                 if let password = passwordText.text{
                     //presentAlert(alert: "tes")
-                    
-                 
                 }
             }
         }else{//login
@@ -35,6 +37,11 @@ class ViewController: UIViewController {
                         if(status==0)
                         {
                             self.presentAlert(alert: message)
+                        }else
+                        {
+                           login.email = email
+                            login.token = token
+                            self.performSegue(withIdentifier: "loginSegue", sender: nil)
                         }
                     }
                 }else
@@ -73,6 +80,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var emailText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailText.text="bayusyafresalizdham@gmail.com"
+        passwordText.text = "bayuganteng2312"
        
     }
     func cekuser(usr:String,pass:String,complete:@escaping (_ status:Int,_ message:String,_ token:String)->Void){
@@ -96,6 +105,7 @@ class ViewController: UIViewController {
             //    print("Data: \(utf8Text)") // original server data as UTF8 string
             // }
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
