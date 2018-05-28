@@ -37,7 +37,7 @@ class ViewController: UIViewController {
                             self.presentAlert(alert: message)
                         }else
                         {
-                           Config.uID = email
+                            Config.uID = email
                             Config.token = token
                             self.performSegue(withIdentifier: "loginSegue", sender: nil)
                         }
@@ -58,7 +58,6 @@ class ViewController: UIViewController {
         }
         alertVC.addAction(okAction)
         present(alertVC,animated: true,completion: nil)
-        
     }
     @IBAction func bottomTapped(_ sender: Any){
         if signupmode{
@@ -80,7 +79,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         emailText.text="bayusyafresalizdham@gmail.com"
         passwordText.text = "bayuganteng2312"
-       
     }
     func cekuser(usr:String,pass:String,complete:@escaping (_ status:Int,_ message:String,_ token:String)->Void){
         let body = ["email":usr,"password":pass]

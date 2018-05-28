@@ -8,6 +8,8 @@
 
 import UIKit
 import MonthYearPicker
+import Alamofire
+import Foundation
 class TransaksiViewController: UIViewController {
 
     @IBOutlet weak var datePicker1: UIDatePicker!
@@ -25,6 +27,23 @@ class TransaksiViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func addTransaction(id_category:Int,id_wallet_user:String,with_name:String,note:String,nominal:String,complete:@escaping (_ status:Int,_ message:String)->Void){
+        let body = ["id_category": id_category,"id_wallet_user":id_wallet_user,"with_name":with_name,"note":note,"nominal":nominal] as [String : Any]
+        Alamofire.request(Config.base_url+Config.getAPI(jenis: "transaction"), method: .post, parameters: body, headers: nil) .responseJSON { (response) in
+            if let json : [String : Any] = response.result.value as?[String:Any] {
+                let message=json["message"].unsafelyUnwrapped as!String
+                let status = json["status"].unsafelyUnwrapped as!Int
+                // print(json["status"].unsafelyUnwrapped)//0 username password salah//1 login benar
+                //status = json["status"].unsafelyUnwrapped as! Int
+                print(status)
+                
+                
+                complete(status,message)
+            }
+        }
+    }
+        
+    
     
 
     /*

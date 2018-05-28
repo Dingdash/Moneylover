@@ -10,9 +10,7 @@ import UIKit
 import Alamofire
 import Foundation
 class LebihViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-  
     @IBOutlet weak var emailText: UILabel!
-    
     let cellContent = ["Dompet Saya","Kategori","Hutang","Alat","Mode Perjalanan","Toko","Jelajahi Money Lover","Tentang"]
     var indexview=0
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,6 +30,7 @@ class LebihViewController: UIViewController,UITableViewDelegate,UITableViewDataS
                 
                 let message=json["message"].unsafelyUnwrapped as!String
                 let status = json["status"].unsafelyUnwrapped as!Int
+                
                 //print(json["status"].unsafelyUnwrapped)//0 username password salah//1 login benar
                 if let array = json["data"] as? [[String: Any]] {
                     //If you want array of task id you can try like
@@ -44,9 +43,29 @@ class LebihViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             }
         }
     }
+    func getTransaction(complete:@escaping(_ result:[[String:Any]]?)->Void){
+        let header = ["token":Config.token]
+        print(header)
+        print(Config.base_url+Config.getAPI(jenis:"transaction"))
+        Alamofire.request(Config.base_url+Config.getAPI(jenis:"transaction/1"),method: .get,encoding:JSONEncoding.default,headers:header).responseJSON { (response) in
+            if let json : [String:Any] = response.result.value as?[String:Any]{
+                let message=json["message"].unsafelyUnwrapped as!String
+                print(message)
+                let status = json["status"].unsafelyUnwrapped as!Int
+                print(status)
+                if let array = json["data"] as? [[String: Any]] {
+                    //If you want array of task id you can try like
+                    //let name_wallet = array.flatMap { $0["name_wallet"] as? String }
+                    //print(array[0]["name_wallet"].unsafelyUnwrapped)
+                    print(array)
+                    complete(array)
+                }
+            }
+        }
+    }
     func getAllKategori(complete:@escaping(_ result:[[String:Any]]?)->Void){
         let header = ["token":Config.token]
-        print(Config.token)
+        
        print(Config.base_url+Config.getAPI(jenis:"category"))
         Alamofire.request(Config.base_url+Config.getAPI(jenis:"category"), method:.get,parameters:nil,encoding:JSONEncoding.default,headers:header).responseJSON{
             response in
@@ -66,10 +85,10 @@ class LebihViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         emailText.text = Config.uID
-        getWallet(complete:{(result) in
+        getTransaction(complete:{(result) in
             //print(result?.count)
             for n in 0..<result!.count{
-                 print(result?[n]["id_wallet"])
+                 print(result?[n])
             }
            
         })
@@ -77,15 +96,12 @@ class LebihViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             //print(result[0]["category_img"])
         }
         // Do any additional setup after loading the view.
-        
     }
     override func viewDidAppear(_ animated: Bool) {
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
         // Dispose of any resources that can be recreated.
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

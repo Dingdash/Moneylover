@@ -15,6 +15,5 @@ struct Config
     static var token = ""
     static func getAPI(jenis:String)->(String){
         return jenis
-    }
-    
+    }   
 }
