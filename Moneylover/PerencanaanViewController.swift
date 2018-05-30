@@ -18,8 +18,6 @@ class PerencanaanViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         if(indexPath.row%2==0)
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PerencanaanCell")

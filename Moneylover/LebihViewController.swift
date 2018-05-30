@@ -63,6 +63,61 @@ class LebihViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             }
         }
     }
+    func getKategoriIncome(complete:@escaping(_ result:[[String:Any]]?)->Void){
+        let header = ["token":Config.token]
+        
+        
+        Alamofire.request(Config.base_url+Config.getAPI(jenis:"category/income"), method:.get,parameters:nil,encoding:JSONEncoding.default,headers:header).responseJSON{
+            response in
+            if let json : [String:Any] = response.result.value as?[String:Any]{
+                let message=json["message"].unsafelyUnwrapped as!String
+                let status = json["status"].unsafelyUnwrapped as!Int
+                if let array = json["data"] as? [[String: Any]] {
+                    //If you want array of task id you can try like
+                    //let name_wallet = array.flatMap { $0["name_wallet"] as? String }
+                    //print(array[0]["name_wallet"].unsafelyUnwrapped)
+                    complete(array)
+                }
+            }
+        }
+    }
+    func getKategoriExpense(complete:@escaping(_ result:[[String:Any]]?)->Void){
+        let header = ["token":Config.token]
+        
+        
+        Alamofire.request(Config.base_url+Config.getAPI(jenis:"category/expense"), method:.get,parameters:nil,encoding:JSONEncoding.default,headers:header).responseJSON{
+            response in
+            if let json : [String:Any] = response.result.value as?[String:Any]{
+                let message=json["message"].unsafelyUnwrapped as!String
+                let status = json["status"].unsafelyUnwrapped as!Int
+                if let array = json["data"] as? [[String: Any]] {
+                    //If you want array of task id you can try like
+                    //let name_wallet = array.flatMap { $0["name_wallet"] as? String }
+                    //print(array[0]["name_wallet"].unsafelyUnwrapped)
+                    complete(array)
+                }
+            }
+        }
+    }
+    func getKategoriOther(complete:@escaping(_ result:[[String:Any]]?)->Void){
+        let header = ["token":Config.token]
+        
+        
+        Alamofire.request(Config.base_url+Config.getAPI(jenis:"category/other"), method:.get,parameters:nil,encoding:JSONEncoding.default,headers:header).responseJSON{
+            response in
+            if let json : [String:Any] = response.result.value as?[String:Any]{
+                let message=json["message"].unsafelyUnwrapped as!String
+                let status = json["status"].unsafelyUnwrapped as!Int
+                if let array = json["data"] as? [[String: Any]] {
+                    //If you want array of task id you can try like
+                    //let name_wallet = array.flatMap { $0["name_wallet"] as? String }
+                    //print(array[0]["name_wallet"].unsafelyUnwrapped)
+                    complete(array)
+                }
+            }
+        }
+    }
+    
     func getAllKategori(complete:@escaping(_ result:[[String:Any]]?)->Void){
         let header = ["token":Config.token]
         
@@ -88,7 +143,7 @@ class LebihViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         getTransaction(complete:{(result) in
             //print(result?.count)
             for n in 0..<result!.count{
-                 print(result?[n])
+                 print(result![n])
             }
            
         })

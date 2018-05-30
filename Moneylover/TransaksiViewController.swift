@@ -42,6 +42,22 @@ class TransaksiViewController: UIViewController {
             }
         }
     }
+    func addWallet(wallet_name:String,complete:@escaping (_ status:Int,_ message:String)->Void){
+        let body = ["walletname":wallet_name]
+        Alamofire.request(Config.base_url+Config.getAPI(jenis: "wallet"), method: .post, parameters: body, headers: nil) .responseJSON { (response) in
+            if let json : [String : Any] = response.result.value as?[String:Any] {
+                let message=json["message"].unsafelyUnwrapped as!String
+                let status = json["status"].unsafelyUnwrapped as!Int
+                // print(json["status"].unsafelyUnwrapped)//0 username password salah//1 login benar
+                //status = json["status"].unsafelyUnwrapped as! Int
+                print(status)
+                
+                
+                complete(status,message)
+            }
+        }
+    }
+    
         
     
     

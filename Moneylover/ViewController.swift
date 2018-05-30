@@ -75,10 +75,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var emailText: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         emailText.text="bayusyafresalizdham@gmail.com"
         passwordText.text = "bayuganteng2312"
+       
     }
     func cekuser(usr:String,pass:String,complete:@escaping (_ status:Int,_ message:String,_ token:String)->Void){
         let body = ["email":usr,"password":pass]
